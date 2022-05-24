@@ -2,7 +2,8 @@
 
 
 ## AIM: 
-To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
+
+    To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
  
 ### COMPONENTS REQUIRED:
 1.	FSR  (force sensitive resistor)
@@ -76,6 +77,49 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 ### PROGRAM 
+
+// C++ code
+
+//
+
+int force = 0;
+
+
+float f = 0;
+
+void setup()
+
+{
+
+ pinMode(A3, INPUT);
+ 
+ pinMode(8, OUTPUT);
+ 
+ Serial.begin(9600);
+ 
+
+}
+
+
+void loop()
+
+{
+
+ force= analogRead(A3);
+ 
+ f = map(force,0,500,0,10);
+ 
+ //Serial.print("Force =");
+ 
+ Serial.println(f);
+ 
+ analogWrite(8, force);
+ 
+ delay(1000); // Wait for 1000 millisecond(s)
+ 
+ 
+}
+
  
  
  
@@ -97,7 +141,6 @@ The easiest way to measure a resistive sensor is to connect one end to power and
  
  
 
-![image](https://user-images.githubusercontent.com/36288975/163533136-5f8d00f2-8456-4d46-b243-d94d45f83eee.png)
 
 ### TABLE -02 OUTPUT VOLTAGES AND CHANGE IN RESISTANCES
 
@@ -108,6 +151,7 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 
+![Screenshot (17)](https://user-images.githubusercontent.com/104053532/170102259-85f6120a-5be2-46bb-bb96-e23ceaf2f65e.png)
 
 
 
@@ -115,4 +159,7 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 
-### RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
+
+### RESULTS : 
+    
+    Arduino uno is interfaced with FSR and output values are indicated on a graph.
